@@ -2,21 +2,22 @@
   <div class="container">
     <h1>非同期通信</h1>
     <p>JSONPlaceholder によるダミー・ユーザーデータの取得 <br> axiosを使用</p>
-
-
     <div class="field-b">
       <h2>v-forでループ処理</h2>
       <ul>
         <li v-for="user in users" v-bind:key="user.id">{{ user.id}} : {{ user.name}} | company : {{ user.company.name }} </li>
       </ul>
     </div>
+    <hr>
+    <h2>画像の表示</h2>
+    <img src="~/assets/spa.png" alt="">
   </div>
 </template>
 
 <script>
 // import Logo from '~/components/Logo.vue'
   const axios = require('axios') // axiosのインスタンスを生成（使えるようにする）
-  let url = 'https://jsonplaceholder.typicode.com/usersxxxx'
+  let url = 'https://jsonplaceholder.typicode.com/users'
 
 export default {
   asyncData({params, error}){ // asyncDataメソッド→Nuxtで用意されている、componentを初期化する前に非同期の処理を行う為のメソッド
@@ -65,5 +66,8 @@ li{
   width: fit-content;
   padding: 10px;
   /* border: solid gray 1px */
+}
+img{
+  width: 50vw;
 }
 </style>
